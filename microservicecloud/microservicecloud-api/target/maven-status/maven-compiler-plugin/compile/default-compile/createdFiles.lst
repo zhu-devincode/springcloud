@@ -1,0 +1,4 @@
+com\alibaba\springcloud\service\DeptClientServiceFallbackFactory$1.class
+com\alibaba\springcloud\entites\Dept.class
+com\alibaba\springcloud\service\DeptClientServiceFallbackFactory.class
+com\alibaba\springcloud\service\DeptClientService.class

@@ -1,0 +1,29 @@
+server:
+  port: 9527
+  
+spring:
+  application:
+    name: microservicecloud-zuul-gateway
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address: true
+    
+info:
+  app.name: alibaba-microservicecloud
+  company.name: www.alibaba.com
+  build.artifactid: $project.artifactId$
+  build.version: $project.version$ 
+  
+zuul:
+  prefix: /alibaba  #设置统一公共前缀名
+  ignored-services:
+  - microservicecloud-dept #zuul路由配置禁止使用真实服务名     批处理禁止暴露" * "
+  routes:
+    mydept.serviceId: microservicecloud-dept  #zuul路由配置不让暴露真实服务名
+    mydept.path: /mydept/** #暴露代理服务名
+
