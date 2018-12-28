@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+boy:
+  name: devin
+  age: 23
+  content: content:${name},age:${age}
+
+#mybatis:
+  #config-location: classpath:mybatis/mybatis.cfg.xml  #mybatis配置文件所在路径
+  #type-aliases-package: com.alibaba.springboot.entity #所有entites别名所在的包
+  #mapper-locations:
+  #- classpath:mybatis/mapper/**/*.xml  #mapper映射文件
+  
+spring:
+  application:
+    name: microservicecloud-dept
+  profiles:
+    active:
+    - prod
+  jpa:
+    hibernate:
+      ddl-auto: create  #代表创建数据库表，update代表更新
+    show-sql: true
+  datasource:
+    #type: com.alibaba.druid.pool.DruidDataSource  #当前数据源操作类型
+    #driver-class-name: org.gjt.mm.mysql.Driver  #mysql驱动包
+    driver-class-name: com.mysql.jdbc.Driver    #serverTimezone=UTC解决启动报错时区问题
+    url: jdbc:mysql://192.168.0.222:3306/itdb?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&characterSetResults=utf8  #数据库名称
+    username: root
+    password: root
+    dbcp2:
+      min-idle: 5 #数据库连接池最小的连接数
+      initial-size: 5 #初始化连接数
+      max-total: 5 #最大连接数
+      max-wait-millis: 200 #等待连接获取的最大超时时间
